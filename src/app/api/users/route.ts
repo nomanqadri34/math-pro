@@ -66,7 +66,7 @@ export async function POST(req: NextRequest) {
 
     // If a school created this student, link them and assign course access
     if (creatorRole === "school") {
-      const schoolDoc = await User.findOne({ email: session.user.email });
+      const schoolDoc = await User.findOne({ email: session?.user?.email });
       if (schoolDoc) {
         newUserObj.schoolId = schoolDoc._id;
         // Pre-enroll student in all courses licensed to the school

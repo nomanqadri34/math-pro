@@ -1,0 +1,21 @@
+﻿.next/dev/types/validator.ts(270,31): error TS2344: Type 'typeof import("E:/math classes/math-platform/src/app/api/users/[id]/mentor/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/users/[id]/mentor">'.
+  Types of property 'PUT' are incompatible.
+    Type '(req: NextRequest, { params }: { params: { id: string; }; }) => Promise<NextResponse<any>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.
+.next/types/validator.ts(270,31): error TS2344: Type 'typeof import("E:/math classes/math-platform/src/app/api/users/[id]/mentor/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/users/[id]/mentor">'.
+  Types of property 'PUT' are incompatible.
+    Type '(req: NextRequest, { params }: { params: { id: string; }; }) => Promise<NextResponse<any>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.
+src/app/api/school/dashboard/route.ts(18,48): error TS18048: 'session.user' is possibly 'undefined'.
+src/app/api/users/route.ts(69,53): error TS18048: 'session.user' is possibly 'undefined'.
+src/components/MathCanvas.tsx(89,13): error TS2322: Type 'RefObject<Line<BufferGeometry<NormalBufferAttributes, BufferGeometryEventMap>, Material | Material[], Object3DEventMap> | null>' is not assignable to type 'Ref<SVGLineElement> | undefined'.
+  Type 'RefObject<Line<BufferGeometry<NormalBufferAttributes, BufferGeometryEventMap>, Material | Material[], Object3DEventMap> | null>' is not assignable to type 'RefObject<SVGLineElement | null>'.
+    Type 'Line<BufferGeometry<NormalBufferAttributes, BufferGeometryEventMap>, Material | Material[], Object3DEventMap> | null' is not assignable to type 'SVGLineElement | null'.
+      Type 'Line<BufferGeometry<NormalBufferAttributes, BufferGeometryEventMap>, Material | Material[], Object3DEventMap>' is missing the following properties from type 'SVGLineElement': x1, x2, y1, y2, and 296 more.
+src/components/MathCanvas.tsx(120,10): error TS2741: Property 'args' is missing in type '{ attach: string; count: number; array: Float32Array<ArrayBuffer>; itemSize: number; }' but required in type 'Mutable<Overwrite<Partial<Overwrite<BufferAttribute, MathProps<BufferAttribute> & ReactProps<BufferAttribute>>>, Omit<...>>>'.

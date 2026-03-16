@@ -2,7 +2,7 @@
 
 import { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float } from "@react-three/drei";
+import { Float, Line } from "@react-three/drei";
 import * as THREE from "three";
 
 // Floating Geometric Shape
@@ -67,16 +67,7 @@ function FloatingLine({
   end: [number, number, number];
   color: string;
 }) {
-  const points = useMemo(() => {
-    return [new THREE.Vector3(...start), new THREE.Vector3(...end)];
-  }, [start, end]);
-
-  const lineGeometry = useMemo(() => {
-    const geometry = new THREE.BufferGeometry().setFromPoints(points);
-    return geometry;
-  }, [points]);
-
-  const lineRef = useRef<THREE.Line>(null);
+  const lineRef = useRef<any>(null);
 
   useFrame((state) => {
     if (lineRef.current) {
@@ -86,9 +77,15 @@ function FloatingLine({
 
   return (
     <Float speed={1} rotationIntensity={0.2} floatIntensity={0.8}>
-      <line ref={lineRef} geometry={lineGeometry}>
-        <lineBasicMaterial color={color} linewidth={2} transparent opacity={0.4} />
-      </line>
+      <group ref={lineRef}>
+        <Line 
+          points={[start, end]} 
+          color={color} 
+          lineWidth={2} 
+          transparent 
+          opacity={0.4} 
+        />
+      </group>
     </Float>
   );
 }
@@ -119,9 +116,7 @@ function BackgroundParticles() {
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
-          count={positions.length / 3}
-          array={positions}
-          itemSize={3}
+          args={[positions, 3]}
         />
       </bufferGeometry>
       <pointsMaterial

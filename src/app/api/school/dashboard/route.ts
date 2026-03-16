@@ -15,7 +15,7 @@ export async function GET(req: NextRequest) {
     await connectToDatabase();
     
     // Fetch the school user to get assigned courses
-    const school = await User.findOne({ email: session.user.email });
+    const school = await User.findOne({ email: session?.user?.email });
     if (!school) {
       return NextResponse.json({ error: "School profile not found" }, { status: 404 });
     }
